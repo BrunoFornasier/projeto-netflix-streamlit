@@ -5,7 +5,7 @@ import seaborn as sns
 
 # Carregamento de dados
 df = pd.read_csv("netflix_titles.csv")
-df['date_added'] = pd.to_datetime(df['date_added'])
+df['date_added'] = pd.to_datetime(df['date_added'], errors='coerce')
 df['release_year'] = pd.to_numeric(df['release_year'], errors='coerce')
 df = df.dropna(subset=['release_year', 'date_added'])
 
